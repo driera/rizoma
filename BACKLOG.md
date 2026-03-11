@@ -8,7 +8,7 @@
 
 Must be completed before product work starts. Listed in order.
 
-### 1. Bootstrap project
+### [#1 Bootstrap project](https://github.com/driera/rizoma/issues/1)
 
 Scaffold the project with Vite, configure TypeScript strict mode, and set up Vite in library mode.
 
@@ -21,7 +21,7 @@ Scaffold the project with Vite, configure TypeScript strict mode, and set up Vit
 
 ---
 
-### 2. Add Prettier
+### [#2 Add Prettier](https://github.com/driera/rizoma/issues/2)
 
 - Add Prettier config
 - Add `eslint-config-prettier` to avoid ESLint conflicts
@@ -29,7 +29,7 @@ Scaffold the project with Vite, configure TypeScript strict mode, and set up Vit
 
 ---
 
-### 3. Add Vitest
+### [#3 Add Vitest](https://github.com/driera/rizoma/issues/3)
 
 - Install Vitest + Testing Library + jest-axe
 - Write `vitest.config.ts` with jsdom environment and setup file
@@ -39,24 +39,31 @@ Scaffold the project with Vite, configure TypeScript strict mode, and set up Vit
 
 ---
 
-### 4. Add Storybook
+### [#4 Add Storybook](https://github.com/driera/rizoma/issues/4)
 
 Dev environment for component documentation and the token explorer.
 
-- Install and configure Storybook with React + Vite
+- Install and configure Storybook 8 with React + Vite
 - Add `@storybook/addon-a11y` — AAA compliance auditable inline for every story
 - Add a minimal story to confirm it runs
 - AC: `bun run dev` opens Storybook with the a11y panel active
 
 ---
 
-### 5. Set up CI workflow
+### [#6 Configure GitHub Pages](https://github.com/driera/rizoma/issues/6)
 
-Validate on every PR and push to main. Deploy Storybook on push to main.
+- Create `gh-pages` orphan branch
+- Enable GitHub Pages on the repo, source set to `gh-pages` branch
+
+---
+
+### [#5 Update CI workflow](https://github.com/driera/rizoma/issues/5)
+
+Validate on every push to main. Deploy Storybook on push to main. Depends on #1–#4 and #6.
 
 - **Validate job:** `lint` → `format:check` → `typecheck` → `test:ci` → `build`
-- **Deploy job** (push to main only, after validate passes): `build:storybook` → deploy to `gh-pages`
-- AC: green CI on a passing PR; Storybook published to GitHub Pages on merge to main
+- **Deploy job** (after validate passes): `build:storybook` → deploy to `gh-pages`
+- AC: green CI on push to main; Storybook published to GitHub Pages
 
 ---
 
@@ -64,7 +71,7 @@ Validate on every PR and push to main. Deploy Storybook on push to main.
 
 Items are listed in priority order (top = highest).
 
-### 1. Button component
+### [#7 Button component](https://github.com/driera/rizoma/issues/7)
 
 First interactive component and the vehicle that drives the initial token API into existence.
 
@@ -76,46 +83,44 @@ First interactive component and the vehicle that drives the initial token API in
 
 ---
 
-### 2. Link component
+### [#8 Text component](https://github.com/driera/rizoma/issues/8)
 
-Navigation primitive that exercises and extends the token API established by Button.
+Text rendering primitive that reveals remaining gaps in the token API — especially type tokens.
 
-- Implement headless Link with correct ARIA and keyboard behavior
-- Token-styled, AAA-compliant
-- Extend token API where Link reveals new needs
-- AC: axe audit passes at AAA; distinguishable from body text without color alone
-
----
-
-### 3. Typography component
-
-Text rendering primitive that reveals any remaining gaps in the token API — especially type tokens.
-
-- Implement headless Typography with semantic element mapping
+- Implement headless Text with semantic element mapping via `variant` prop
 - Token-styled (font family, size, weight, line height)
 - AAA-compliant (contrast ratios, minimum text size)
 - AC: axe audit passes at AAA; correct heading hierarchy enforced
 
 ---
 
-### 4. Stabilize token API
+### [#9 Stabilize token API](https://github.com/driera/rizoma/issues/9)
 
-Formalize and harden the token system after three real consumers have proven it. Introduce global tokens as fallback defaults — components use global values unless overridden at the component level (e.g. `global.accent` as default button background, `global.radius` as default border radius). Refactor Button, Link, and Typography to adopt the cascade.
+Formalize and harden the token system after real consumers have proven it. Introduce global tokens as fallback defaults. Refactor Button and Text to adopt the cascade.
 
 - Define global token shape: primary color, base spacing, base radius
 - Implement cascade resolution: component token → global token fallback
-- Refactor existing components to use cascade — simplifying their token consumption
-- Review naming consistency across all tokens
-- Write TypeScript types for the full token surface
-- Document the token contract
-- AC: global tokens apply by default; component-level overrides work correctly; all three components pass their existing tests after refactor
+- Refactor existing components to use cascade
+- AC: global tokens apply by default; component-level overrides work correctly; all tests pass after refactor
 
 ---
 
-### 5. Token explorer
+### [#10 Token explorer](https://github.com/driera/rizoma/issues/10)
 
-Storybook page that makes the full token surface visible and auditable.
+Storybook page that makes the full token surface visible and auditable. Read-only for MVP.
 
 - Display all tokens (color, typography, spacing) in a structured Storybook page
-- Leverage Storybook doc and addon ecosystem
+- Global tokens and component-level overrides visually distinguished
 - AC: design system engineers can inspect every token decision without leaving Storybook
+
+---
+
+## Future
+
+Not committed to a milestone. Revisit after MVP.
+
+### Token editor
+
+Design system engineers can tweak token values live, switch between predefined palettes,
+and see all components update in real time across the entire component library. Scoped out
+of MVP due to complexity around state propagation, persistence, and override scope.

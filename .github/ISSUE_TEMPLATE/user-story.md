@@ -1,11 +1,13 @@
 ---
 name: User Story
-about: A feature or improvement from a user's perspective
+about: A feature or improvement
 labels: ''
 assignees: ''
 ---
 
-## As a [user], I want [action] so that [outcome]
+## Goal
+
+As a [user], I want [action] so that [outcome]
 
 ## Context
 
@@ -25,6 +27,4 @@ Constraints, approach hints, ADR references.
 ## Definition of Done
 
 - [ ] Tests passing
-- [ ] Code reviewed
-- [ ] Docs updated
-- [ ] PR linked and merged
+- [ ] Documentation updated
