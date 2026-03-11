@@ -54,3 +54,4 @@ docs: document token system approach
 - **Documentation-first** — README and issues written before code
 - **Short, intentional commits** — each commit tells a story
 - **Clean code + functional patterns** — no shortcuts for speed
+- **Trunk-based development** — no PRs; commits go straight to main
