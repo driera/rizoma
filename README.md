@@ -33,15 +33,15 @@ minimum bar that makes the library trustworthy for real products.
 ## Status
 
 Current milestone: `MVP — in progress`
-[Goals →](GOALS.md) · [Roadmap →](https://github.com/users/driera/projects/1)
+[Goals →](GOALS.md) · [Tech →](TECH.md) · [Roadmap →](https://github.com/users/driera/projects/1)
 
 ## Development
 
 ```bash
-npm install
-npm run dev        # Storybook
-npm test           # Vitest
-npm run build      # Library build
+bun install
+bun run dev        # Storybook
+bun test           # Vitest (watch)
+bun run build      # Library build
 ```
 
 > Setup instructions will expand as the stack is established.
