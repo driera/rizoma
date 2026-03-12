@@ -6,8 +6,8 @@
 ## Context
 
 Rizoma is a headless component library with WCAG AAA compliance as a hard requirement.
-Two viable approaches were considered: React components and Web Components (Custom Elements
-+ Shadow DOM). The choice shapes the library's consumer base, testing strategy, and
+Two viable approaches were considered: React components and Web Components (Custom Elements +
+Shadow DOM). The choice shapes the library's consumer base, testing strategy, and
 accessibility implementation surface for the entire project.
 
 ## Decision

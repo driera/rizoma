@@ -25,6 +25,7 @@ explore-issue → plan → implement → review
 ```
 
 Work artifacts per issue live in `sessions/NNN-issue-title/`:
+
 - `exploration.md` — problem space and edge cases
 - `design.md` — architecture, components, data flow
 - `plan.md` — ordered, testable tasks
@@ -40,6 +41,7 @@ type: short imperative description
 Types: `feat`, `fix`, `test`, `docs`, `refactor`, `chore`, `a11y`, `dx`
 
 Examples:
+
 ```
 feat: add loading state with aria-busy
 a11y: implement keyboard navigation for listbox

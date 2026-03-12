@@ -30,7 +30,7 @@ jobs:
       - name: Type-check
         run: npm run typecheck
         if: ${{ success() }}
-        continue-on-error: true  # remove if project has strict typecheck script
+        continue-on-error: true # remove if project has strict typecheck script
 
       - name: Test
         run: npm test -- --run
