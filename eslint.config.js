@@ -3,6 +3,7 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
+import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default tseslint.config(
   { ignores: ['dist'] },
@@ -13,7 +14,8 @@ export default tseslint.config(
       tseslint.configs.recommended,
       react.configs.flat.recommended,
       react.configs.flat['jsx-runtime'],
-      reactHooks.configs.flat.recommended
+      reactHooks.configs.flat.recommended,
+      eslintConfigPrettier
     ],
     languageOptions: {
       ecmaVersion: 2020,
