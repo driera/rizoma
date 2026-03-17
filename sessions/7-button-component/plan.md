@@ -120,7 +120,7 @@ Commit: `feat: add Button component (#7)`
 
 ---
 
-### 6. Add accessibility audit and finalize tests
+### 6. Add accessibility audit and finalize tests ✅
 
 Ensure every variant passes jest-axe with zero violations. Verify the full test suite covers rendering, ARIA, keyboard interaction, token resolution, and accessibility.
 
