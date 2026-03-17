@@ -84,7 +84,7 @@ Commit: `feat: add RizomaProvider (#7)`
 
 ---
 
-### 4. Build the token resolution utility
+### 4. Build the token resolution utility ✅
 
 Create `src/theme/resolveTokens.ts`. The function accepts global token defaults, component-level defaults (derived from variant + palette lookup), and instance-level overrides. It returns a flat `CSSProperties` record of CSS custom properties. The consumer's `style` prop merges last and wins on conflict.
 
