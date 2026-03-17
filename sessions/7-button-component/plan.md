@@ -134,7 +134,7 @@ Commit: `a11y: add axe audit for Button (#7)`
 
 ---
 
-### 7. Add Storybook stories
+### 7. Add Storybook stories ✅
 
 Create `src/components/Button/Button.stories.tsx` with controls for `variant`, `color`, `size`, `disabled`, and `children`. Include a story showing all three variants side by side.
 
