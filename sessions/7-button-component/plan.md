@@ -69,7 +69,7 @@ Commit: `feat: add primary color palette (#7)`
 
 ---
 
-### 3. Create the RizomaProvider
+### 3. Create the RizomaProvider ✅
 
 Create `src/theme/RizomaProvider.tsx`. A React context provider that accepts a typed `theme` object and writes its values as CSS custom properties on a wrapper `<div>`. Components read these variables via `resolveTokens()`. Consumers who prefer CSS-only skip the provider and set the variables directly on `:root`.
 
