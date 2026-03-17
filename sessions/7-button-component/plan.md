@@ -42,7 +42,7 @@ The token system does not exist yet — Button drives it into existence. This me
 
 ## Tasks
 
-### 1. Configure PostCSS and test setup
+### 1. Configure PostCSS and test setup ✅
 
 Add `postcss-preset-env` (stage 2) so CSS Modules can use modern CSS features like nesting. Create `src/setupTests.ts` wiring `@testing-library/jest-dom` matchers and `jest-axe` into Vitest. Reference the setup file in `vitest.config.ts`.
 
