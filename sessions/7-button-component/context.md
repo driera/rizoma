@@ -121,7 +121,7 @@ Override paths (all work):
 
 ## Resolved Questions
 
-- **Palettes:** Ship one initial palette (`primary`) based on `hsla(195, 100%, 40%, 1)` (#0099CC), scale 50–900 by lightness
+- **Palettes:** Ship one initial palette (`primary`) based on `oklch(0.59 0.14 220)` (#0099CC), scale 50–900 by lightness
 - **Global token provider:** Hybrid approach — React context provider that writes a typed JS theme object as CSS custom properties on a wrapper element. Consumers who prefer CSS-only skip the provider and set variables directly. Same underlying mechanism either way.
 - **PostCSS:** `postcss-preset-env` at stage 2 — bundles nesting, autoprefixer, and spec-aligned transforms in one package
 

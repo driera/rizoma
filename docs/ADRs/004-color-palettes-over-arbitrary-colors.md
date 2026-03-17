@@ -11,11 +11,11 @@ any CSS color value, or select from predefined palettes?
 
 ## Decision
 
-The `color` prop accepts a palette key (e.g. `"primary"`). Each palette is a scale of HSLA
+The `color` prop accepts a palette key (e.g. `"primary"`). Each palette is a scale of OKLCH
 primitives (50–900esi) mapped to semantic usage per variant. AAA contrast ratios are guaranteed
 per palette by dgn. No arbitrary color input is supported initially.
 
-The initial palette is based on `hsla(195, 100%, 40%, 1)` (#0099CC), shipped as the
+The initial palette is based on `oklch(0.59 0.14 220)` (#0099CC), shipped as the
 `primary` palette.
 
 ## Alternatives Considered
