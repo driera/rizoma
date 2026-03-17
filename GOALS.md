@@ -20,8 +20,9 @@ covering color, typography, and spacing.
 
 - **Subject**: React product developers and design system engineers
 - **Context**: Accessible libraries often constrain style, forcing teams to
-  choose between correctness and design ownership. Rizoma ships zero styles —
-  the token API is the only surface between the library and the design.
+  choose between correctness and design ownership. Rizoma ships sensible
+  defaults fully customizable through token props or any styling method the
+  consumer prefers.
 
 ### Design system engineers can inspect and audit the full token surface at a glance
 

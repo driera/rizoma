@@ -9,7 +9,7 @@
 | --------------- | ------------ | ------------------------------------------------------------------- |
 | Language        | TypeScript   | Strict mode                                                         |
 | Runtime         | Browser      | No Node runtime concerns beyond tooling                             |
-| Framework       | React + Vite | Headless component library                                          |
+| Framework       | React + Vite | Component library                                                   |
 | Package manager | Bun          | Faster installs and script execution; `bun publish` to npm registry |
 
 ## Toolchain

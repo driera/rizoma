@@ -4,7 +4,7 @@
 
 ## Project
 
-**Rizoma** — Accessible headless component library with a token-based style API and AAA a11y compliance.
+**Rizoma** — Accessible component library with a token-based style API, and AAA a11y compliance.
 
 `WORKFLOW_VERSION: forge@v1.1.0`
 

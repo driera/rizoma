@@ -9,9 +9,9 @@ that needs a dropdown, a dialog, or a combobox ends up reimplementing the same A
 keyboard navigation logic, and focus management from scratch — often getting it subtly wrong,
 and always paying the cost again.
 
-Rizoma is a headless component library that handles the hard parts: ARIA roles, keyboard
-interactions, focus trapping, screen reader announcements. It ships zero styles. You bring
-the design; rizoma brings the behaviour.
+Rizoma is a component library that handles the hard parts: ARIA roles, keyboard
+interactions, focus trapping, screen reader announcements. It ships sensible defaults,
+fully customizable through token props or any styling method you prefer.
 
 Rizoma is built around a token-based style API. Tokens define colour, typography, and
 spacing as structured design decisions — not arbitrary values. This makes theming explicit,
@@ -26,7 +26,7 @@ minimum bar that makes the library trustworthy for real products.
 - Composable ARIA pattern implementation (roles, states, relationships)
 - Keyboard navigation and focus management — correct across browsers and assistive technology
 - Token-based design API — colour, typography, spacing as first-class structured decisions
-- Headless and compound component patterns — maximum flexibility, zero style lock-in
+- Sensible defaults with compound component patterns — fully customizable, no style lock-in
 - TDD with accessibility-specific testing (axe, Testing Library, keyboard simulation)
 - Documentation as a product — Storybook stories, token explorer, usage guides, ADRs
 
