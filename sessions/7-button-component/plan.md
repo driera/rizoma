@@ -98,7 +98,7 @@ Commit: `feat: add token resolution utility (#7)`
 
 ---
 
-### 5. Implement the Button component
+### 5. Implement the Button component ✅
 
 Create `src/components/Button/Button.tsx`, `Button.module.css`, and `src/components/Button/index.ts`. The component is a `forwardRef` that renders a `<button>` by default (overridable via `as`), calls `resolveTokens()` to compute inline custom properties, and applies CSS Module styles.
 
