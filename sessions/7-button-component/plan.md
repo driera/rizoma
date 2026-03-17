@@ -149,7 +149,7 @@ Commit: `docs: add Button stories (#7)`
 
 ---
 
-### 8. Export Button from the library barrel
+### 8. Export Button from the library barrel ✅
 
 Update `src/index.ts` to export `Button` and `ButtonProps`. Remove the placeholder story if it still exists.
 
