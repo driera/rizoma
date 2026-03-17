@@ -55,7 +55,7 @@ Commit: `chore: add postcss and test setup (#7)`
 
 ---
 
-### 2. Define the primary color palette
+### 2. Define the primary color palette ✅
 
 Create `src/theme/palettes.ts` with the primary palette: an OKLCH scale from 50 to 900, keyed by step number. Export a type for palette keys and palette shape. Create the barrel `src/theme/index.ts`.
 
