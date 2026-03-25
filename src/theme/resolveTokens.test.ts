@@ -47,4 +47,24 @@ describe('resolveTokens', () => {
     const result = resolveTokens({ variant: 'solid', color: 'unknown' });
     expect(result['--button-bg']).toBe(palettes.primary[600]);
   });
+
+  // --- Hover tokens ---
+
+  it('solid variant returns correct hover tokens', () => {
+    const result = resolveTokens({ variant: 'solid', color: 'primary' });
+    expect(result['--button-hover-bg']).toBe(palettes.primary[700]);
+    expect(result['--button-hover-border-color']).toBe(palettes.primary[700]);
+  });
+
+  it('outline variant returns correct hover tokens', () => {
+    const result = resolveTokens({ variant: 'outline', color: 'primary' });
+    expect(result['--button-hover-bg']).toBe(palettes.primary[50]);
+    expect(result['--button-hover-border-color']).toBe(palettes.primary[700]);
+  });
+
+  it('ghost variant returns correct hover tokens', () => {
+    const result = resolveTokens({ variant: 'ghost', color: 'primary' });
+    expect(result['--button-hover-bg']).toBe(palettes.primary[100]);
+    expect(result['--button-hover-border-color']).toBe(palettes.primary[200]);
+  });
 });

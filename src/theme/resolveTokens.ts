@@ -19,18 +19,24 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
         '--button-bg': palette[600],
         '--button-color': 'white',
         '--button-border-color': palette[600],
+        '--button-hover-bg': palette[700],
+        '--button-hover-border-color': palette[700],
       };
     case 'outline':
       return {
         '--button-bg': 'transparent',
         '--button-color': palette[600],
         '--button-border-color': palette[600],
+        '--button-hover-bg': palette[50],
+        '--button-hover-border-color': palette[700],
       };
     case 'ghost':
       return {
         '--button-bg': palette[50],
         '--button-color': palette[600],
         '--button-border-color': 'transparent',
+        '--button-hover-bg': palette[100],
+        '--button-hover-border-color': palette[200],
       };
   }
 }

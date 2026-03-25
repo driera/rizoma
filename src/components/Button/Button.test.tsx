@@ -133,6 +133,29 @@ describe('Button', () => {
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 
+  // --- Hover tokens ---
+
+  it('solid variant has hover custom properties in inline style', () => {
+    render(<Button variant="solid">Solid</Button>);
+    const button = screen.getByRole('button');
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[700]);
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[700]);
+  });
+
+  it('outline variant has hover custom properties in inline style', () => {
+    render(<Button variant="outline">Outline</Button>);
+    const button = screen.getByRole('button');
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[50]);
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[700]);
+  });
+
+  it('ghost variant has hover custom properties in inline style', () => {
+    render(<Button variant="ghost">Ghost</Button>);
+    const button = screen.getByRole('button');
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[100]);
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[200]);
+  });
+
   // --- Spread props ---
 
   it('remaining native button props are spread through', () => {

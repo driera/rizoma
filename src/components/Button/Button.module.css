@@ -22,6 +22,11 @@
     border-color 150ms ease,
     opacity 150ms ease;
 
+  &:hover:not([aria-disabled='true']) {
+    background: var(--button-hover-bg);
+    border-color: var(--button-hover-border-color);
+  }
+
   &[aria-disabled='true'] {
     opacity: 0.5;
     cursor: not-allowed;

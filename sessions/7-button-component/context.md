@@ -119,11 +119,44 @@ Override paths (all work):
 - All three variants visible side by side
 - a11y addon panel clean
 
+## Hover State (addendum)
+
+### Problem
+
+Button shipped without `:hover` visual feedback. WCAG 2.1 SC 1.4.11 requires interactive states to be visually perceivable. The transition properties were already in place in the CSS Module but had nothing to transition to.
+
+### Design
+
+Hover tokens are derived from the same palette the consumer already specified — no new props needed. `resolveTokens` produces two additional custom properties per variant:
+
+- `--button-hover-bg`
+- `--button-hover-border-color`
+
+**Per-variant mapping:**
+
+| Variant | Hover bg | Hover border |
+|---------|----------|--------------|
+| solid   | `700`    | `700`        |
+| outline | `50`     | `700`        |
+| ghost   | `100`    | `200`        |
+
+**Rationale for outline/ghost:** A fill jump alone (transparent → light) is light-on-light and fails 3:1 against a white page background regardless of step size. Darkening the border is the correct contrast lever — it's the visual boundary the eye already uses to define the button shape. The fill change is a bonus.
+
+CSS Module adds a single rule: `:hover:not([aria-disabled='true'])`. Disabled buttons never show hover feedback.
+
+Consumers can override via `--button-hover-bg` and `--button-hover-border-color` custom properties.
+
+### Testing additions
+
+- `resolveTokens` unit tests: hover tokens correct for each variant
+- Button render tests: hover custom properties present on the element
+
 ## Resolved Questions
 
 - **Palettes:** Ship one initial palette (`primary`) based on `oklch(0.59 0.14 220)` (#0099CC), scale 50–900 by lightness
 - **Global token provider:** Hybrid approach — React context provider that writes a typed JS theme object as CSS custom properties on a wrapper element. Consumers who prefer CSS-only skip the provider and set variables directly. Same underlying mechanism either way.
 - **PostCSS:** `postcss-preset-env` at stage 2 — bundles nesting, autoprefixer, and spec-aligned transforms in one package
+- **Hover state:** Derived from palette, not a consumer prop. Border darkening is the contrast lever for outline/ghost variants; fill change is supplementary.
 
 ## Open Questions
 

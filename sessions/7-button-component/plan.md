@@ -160,3 +160,28 @@ Use cases to cover:
 - Library builds without errors
 
 Commit: `feat: export Button from library barrel (#7)`
+
+---
+
+### 9. Add hover state to Button ✅
+
+Button shipped without `:hover` visual feedback. WCAG 2.1 SC 1.4.11 requires interactive states to be visually perceivable. The CSS Module already has `transition` on `background` and `border-color` — there was nothing to transition to.
+
+Hover tokens are derived from the same palette the consumer already passes — no new prop needed. `resolveTokens` gains two new output properties (`--button-hover-bg`, `--button-hover-border-color`) and the CSS Module gains a single `:hover:not([aria-disabled='true'])` rule.
+
+Token mapping:
+
+| Variant | `--button-hover-bg` | `--button-hover-border-color` |
+|---------|---------------------|-------------------------------|
+| solid   | `palette[700]`      | `palette[700]`                |
+| outline | `palette[50]`       | `palette[700]`                |
+| ghost   | `palette[100]`      | `palette[200]`                |
+
+For outline and ghost, fill alone (light on white) fails 3:1 non-text contrast regardless of step. Darkening the border is the primary contrast lever.
+
+Use cases to cover:
+- `resolveTokens` returns correct `--button-hover-bg` and `--button-hover-border-color` for `solid`, `outline`, and `ghost` variants
+- Rendered Button has both hover custom properties in its inline style for each variant
+- Disabled Button (`aria-disabled="true"`) does not visually respond to hover (CSS rule excludes it)
+
+Commit: `feat: add hover state to Button (#7)`
