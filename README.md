@@ -30,6 +30,70 @@ minimum bar that makes the library trustworthy for real products.
 - TDD with accessibility-specific testing (axe, Testing Library, keyboard simulation)
 - Documentation as a product — Storybook stories, token explorer, usage guides, ADRs
 
+## Components
+
+### Button
+
+```tsx
+import { Button } from 'rizoma';
+
+<Button variant="solid" color="primary">Save</Button>
+<Button variant="outline" color="primary" size="s">Cancel</Button>
+<Button as="a" href="/dashboard" variant="ghost">Dashboard</Button>
+<Button disabled>Unavailable</Button>
+```
+
+#### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'solid' \| 'outline' \| 'ghost'` | `'solid'` | Visual style |
+| `color` | `string` | `'primary'` | Palette key — selects the color scale |
+| `size` | `'s' \| 'm'` | `'m'` | Controls padding and font size |
+| `disabled` | `boolean` | `false` | Sets `aria-disabled`, keeps element focusable |
+| `as` | `ElementType` | `'button'` | Override rendered element (`'a'`, `'div'`, etc.) |
+| `children` | `ReactNode` | — | Button label (required) |
+
+All native HTML attributes are forwarded. `ref` is supported.
+
+#### Token customization
+
+Tokens are CSS custom properties. Override them via `RizomaProvider`, a `style` prop, or plain CSS.
+
+```tsx
+// Via RizomaProvider (global)
+<RizomaProvider theme={{ fontFamily: 'Inter, sans-serif', radius: '8px' }}>
+  <App />
+</RizomaProvider>
+
+// Via style prop (instance)
+<Button style={{ '--button-bg': '#0f172a', '--button-color': '#f8fafc' } as React.CSSProperties}>
+  Custom
+</Button>
+```
+
+| Token | Default | Description |
+|-------|---------|-------------|
+| `--button-bg` | variant-derived | Background color |
+| `--button-color` | variant-derived | Text color |
+| `--button-border-color` | variant-derived | Border color |
+| `--button-hover-bg` | variant-derived | Background on hover |
+| `--button-hover-border-color` | variant-derived | Border on hover |
+| `--rizoma-font-family` | `sans-serif` | Font family (global) |
+| `--rizoma-radius` | `6px` | Border radius (global) |
+| `--rizoma-focus-ring-color` | `oklch(0.43 0.14 220)` | Focus ring color (global) |
+| `--rizoma-focus-ring-width` | `2px` | Focus ring width (global) |
+| `--rizoma-focus-ring-offset` | `2px` | Focus ring offset (global) |
+
+#### Accessibility
+
+- Uses `aria-disabled` instead of `disabled` — keeps the element focusable for assistive technology
+- Focus ring always visible on keyboard navigation (`:focus-visible`)
+- Non-button `as` elements automatically receive `role="button"` and `tabIndex={0}`
+- All variants meet WCAG AAA contrast (7:1 minimum) against white backgrounds
+
+---
+
 ## Status
 
 Current milestone: `MVP — in progress`
