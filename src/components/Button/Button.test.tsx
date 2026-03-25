@@ -71,14 +71,15 @@ describe('Button', () => {
   it('size defaults to m', () => {
     render(<Button>Medium</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-size-padding-x')).toBeTruthy();
+    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe('1rem');
+    expect(button.style.getPropertyValue('--button-size-font')).toBe('1rem');
   });
 
-  it('size s applies smaller dimensions', () => {
+  it('size s applies smaller dimensions than size m', () => {
     render(<Button size="s">Small</Button>);
     const button = screen.getByRole('button');
-    const paddingX = button.style.getPropertyValue('--button-size-padding-x');
-    expect(paddingX).toBeTruthy();
+    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe('0.75rem');
+    expect(button.style.getPropertyValue('--button-size-font')).toBe('0.875rem');
   });
 
   // --- Disabled ---
@@ -88,6 +89,12 @@ describe('Button', () => {
     const button = screen.getByRole('button');
     expect(button).toHaveAttribute('aria-disabled', 'true');
     expect(button).not.toHaveAttribute('disabled');
+  });
+
+  it('aria-disabled is absent when not disabled', () => {
+    render(<Button>Active</Button>);
+    const button = screen.getByRole('button');
+    expect(button).not.toHaveAttribute('aria-disabled');
   });
 
   it('disabled suppresses onClick', async () => {
