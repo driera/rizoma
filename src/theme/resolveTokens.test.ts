@@ -14,7 +14,7 @@ describe('resolveTokens', () => {
     const result = resolveTokens({ variant: 'outline', color: 'primary' });
     expect(result['--button-bg']).toBe('transparent');
     expect(result['--button-color']).toBe(palettes.primary[600]);
-    expect(result['--button-border-color']).toBe(palettes.primary[600]);
+    expect(result['--button-border-color']).toBe(palettes.primary[500]);
   });
 
   it('returns expected custom properties for ghost variant', () => {

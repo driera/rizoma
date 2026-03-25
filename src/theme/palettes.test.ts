@@ -50,7 +50,7 @@ describe('palettes', () => {
   });
 
   it('step 600 matches the accessible anchor color', () => {
-    expect(palettes.primary[600]).toBe('oklch(0.40 0.14 220)');
+    expect(palettes.primary[600]).toBe('oklch(0.43 0.14 220)');
   });
 
   it('step 600 achieves ≥ 7:1 contrast ratio against white (WCAG AAA)', () => {

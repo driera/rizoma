@@ -35,7 +35,7 @@ describe('Button', () => {
     const button = screen.getByRole('button');
     expect(button.style.getPropertyValue('--button-bg')).toBe('transparent');
     expect(button.style.getPropertyValue('--button-color')).toBe(palettes.primary[600]);
-    expect(button.style.getPropertyValue('--button-border-color')).toBe(palettes.primary[600]);
+    expect(button.style.getPropertyValue('--button-border-color')).toBe(palettes.primary[500]);
   });
 
   it('ghost variant applies correct tokens', () => {

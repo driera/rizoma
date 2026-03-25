@@ -26,7 +26,7 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
       return {
         '--button-bg': 'transparent',
         '--button-color': palette[600],
-        '--button-border-color': palette[600],
+        '--button-border-color': palette[500],
         '--button-hover-bg': palette[50],
         '--button-hover-border-color': palette[700],
       };
