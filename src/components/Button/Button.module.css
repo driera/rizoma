@@ -33,7 +33,7 @@
   }
 
   &:focus-visible {
-    outline: 2px solid var(--rizoma-focus-ring-color, oklch(0.59 0.14 220));
+    outline: var(--rizoma-focus-ring-width, 2px) solid var(--rizoma-focus-ring-color, oklch(0.43 0.14 220));
     outline-offset: var(--rizoma-focus-ring-offset, 2px);
   }
 }
