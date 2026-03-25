@@ -12,6 +12,7 @@ export function useRizomaTheme(): RizomaTheme {
 const TOKEN_PREFIX = '--rizoma-';
 
 const themeKeyToVar: Record<keyof RizomaTheme, string> = {
+  fontFamily: `${TOKEN_PREFIX}font-family`,
   radius: `${TOKEN_PREFIX}radius`,
   focusRingColor: `${TOKEN_PREFIX}focus-ring-color`,
   focusRingWidth: `${TOKEN_PREFIX}focus-ring-width`,

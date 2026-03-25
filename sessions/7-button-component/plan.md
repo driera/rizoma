@@ -185,3 +185,39 @@ Use cases to cover:
 - Disabled Button (`aria-disabled="true"`) does not visually respond to hover (CSS rule excludes it)
 
 Commit: `feat: add hover state to Button (#7)`
+
+---
+
+### 10. Add fontFamily as a global theme token ✅
+
+`Button.module.css` currently uses `font-family: inherit`, which falls back to the browser default (serif) when no ancestor sets a font. Font family should be a first-class global token in `RizomaTheme`, written as `--rizoma-font-family` by `RizomaProvider` and consumed by the Button. The CSS fallback value is `sans-serif`, so the component looks correct even without a provider.
+
+Files involved:
+- `src/theme/types.ts` — add `fontFamily?: string` to `RizomaTheme`
+- `src/theme/RizomaProvider.tsx` — add `fontFamily` → `--rizoma-font-family` mapping to `themeKeyToVar`
+- `src/components/Button/Button.module.css` — change `font-family: inherit` → `font-family: var(--rizoma-font-family, sans-serif)`
+- `src/theme/RizomaProvider.test.tsx` — add test case
+
+Use cases to cover:
+- `RizomaProvider` with `fontFamily: 'Georgia'` writes `--rizoma-font-family: Georgia` on the wrapper element
+- Button rendered without a provider uses `var(--rizoma-font-family, sans-serif)` (CSS fallback applies automatically — no test needed)
+
+Commit: `feat: add fontFamily global token (#7)`
+
+---
+
+### 11. Recalibrate primary palette for AAA contrast compliance
+
+The current palette anchors step 600 at `oklch(0.59 0.14 220)`, which produces ~3.6:1 contrast against white — below WCAG AA (4.5:1). For a library claiming AAA compliance, step 600 must guarantee 7:1 against white. The entire scale rebuilds around a new anchor at approximately `oklch(0.45 0.15 220)`, with lighter steps proportionally lighter and darker steps proportionally darker.
+
+A contrast-ratio test must assert that `palettes.primary[600]` achieves ≥ 7:1 against white. Since browsers don't expose contrast calculation natively in tests, implement a minimal `relativeLuminance` utility (sRGB conversion from OKLCH) and use the WCAG formula directly.
+
+Files involved:
+- `src/theme/palettes.ts` — recalibrate the primary scale
+- `src/theme/palettes.test.ts` — add contrast ratio assertion for step 600 vs white
+
+Use cases to cover:
+- `palettes.primary[600]` achieves ≥ 7:1 contrast ratio against white (`#ffffff`)
+- All existing palette tests still pass (steps exist, step 600 is a valid OKLCH string)
+
+Commit: `a11y: recalibrate primary palette for AAA contrast (#7)`

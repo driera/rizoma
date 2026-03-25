@@ -37,6 +37,17 @@ describe('RizomaProvider', () => {
     expect(wrapper.style.getPropertyValue('--rizoma-radius')).toBe('16px');
   });
 
+  it('fontFamily theme value writes --rizoma-font-family on the wrapper', () => {
+    const theme: RizomaTheme = { fontFamily: 'Georgia' };
+    const { container } = render(
+      <RizomaProvider theme={theme}>
+        <span>child</span>
+      </RizomaProvider>,
+    );
+    const wrapper = container.firstElementChild as HTMLElement;
+    expect(wrapper.style.getPropertyValue('--rizoma-font-family')).toBe('Georgia');
+  });
+
   it('components outside any provider still render', () => {
     render(<span>no provider</span>);
     expect(screen.getByText('no provider')).toBeInTheDocument();

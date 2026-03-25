@@ -7,7 +7,7 @@
   padding: var(--button-size-padding-y) var(--button-size-padding-x);
   font-size: var(--button-size-font);
   line-height: 1.25;
-  font-family: inherit;
+  font-family: var(--rizoma-font-family, sans-serif);
   font-weight: 500;
 
   background: var(--button-bg);
