@@ -79,9 +79,14 @@ export const Button = forwardRef<HTMLElement, ButtonProps>(
       }
     };
 
+    const nativeInteractive = new Set(['button', 'a', 'input', 'select', 'textarea']);
+    const needsButtonRole = typeof Component === 'string' && !nativeInteractive.has(Component);
+
     return (
       <Component
         ref={ref}
+        role={needsButtonRole ? 'button' : undefined}
+        tabIndex={needsButtonRole ? 0 : undefined}
         className={mergedClassName}
         style={mergedStyle}
         aria-disabled={disabled || undefined}

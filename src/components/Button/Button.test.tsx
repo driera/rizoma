@@ -21,6 +21,19 @@ describe('Button', () => {
     expect(link.tagName).toBe('A');
   });
 
+  it('non-button as prop adds role="button" and tabIndex={0}', () => {
+    render(<Button as="div">Div button</Button>);
+    const el = screen.getByRole('button', { name: 'Div button' });
+    expect(el.tagName).toBe('DIV');
+    expect(el).toHaveAttribute('tabindex', '0');
+  });
+
+  it('native button element does not get role="button" added', () => {
+    render(<Button>Native</Button>);
+    const el = screen.getByRole('button', { name: 'Native' });
+    expect(el).not.toHaveAttribute('role');
+  });
+
   // --- Variants ---
 
   it('variant defaults to solid', () => {
