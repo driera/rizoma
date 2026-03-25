@@ -16,15 +16,24 @@ function oklchLuminance(oklch: string): number {
 
   const l_ = L + 0.3963377774 * a + 0.2158037573 * b;
   const m_ = L - 0.1055613458 * a - 0.0638541728 * b;
-  const s_ = L - 0.0894841775 * a - 1.2914855480 * b;
+  const s_ = L - 0.0894841775 * a - 1.291485548 * b;
 
   const lms_l = l_ ** 3;
   const lms_m = m_ ** 3;
   const lms_s = s_ ** 3;
 
-  const R = Math.max(0,  4.0767416621 * lms_l - 3.3077115913 * lms_m + 0.2309699292 * lms_s);
-  const G = Math.max(0, -1.2684380046 * lms_l + 2.6097574011 * lms_m - 0.3413193965 * lms_s);
-  const B = Math.max(0, -0.0041960863 * lms_l - 0.7034186147 * lms_m + 1.7076147010 * lms_s);
+  const R = Math.max(
+    0,
+    4.0767416621 * lms_l - 3.3077115913 * lms_m + 0.2309699292 * lms_s
+  );
+  const G = Math.max(
+    0,
+    -1.2684380046 * lms_l + 2.6097574011 * lms_m - 0.3413193965 * lms_s
+  );
+  const B = Math.max(
+    0,
+    -0.0041960863 * lms_l - 0.7034186147 * lms_m + 1.707614701 * lms_s
+  );
 
   return 0.2126 * R + 0.7152 * G + 0.0722 * B;
 }

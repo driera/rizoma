@@ -16,7 +16,11 @@ describe('Button', () => {
   });
 
   it('as prop changes the rendered element', () => {
-    render(<Button as="a" href="#">Link</Button>);
+    render(
+      <Button as="a" href="#">
+        Link
+      </Button>
+    );
     const link = screen.getByRole('link', { name: 'Link' });
     expect(link.tagName).toBe('A');
   });
@@ -39,7 +43,9 @@ describe('Button', () => {
   it('variant defaults to solid', () => {
     render(<Button>Solid</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-bg')).toBe(palettes.primary[600]);
+    expect(button.style.getPropertyValue('--button-bg')).toBe(
+      palettes.primary[600]
+    );
     expect(button.style.getPropertyValue('--button-color')).toBe('white');
   });
 
@@ -47,15 +53,23 @@ describe('Button', () => {
     render(<Button variant="outline">Outline</Button>);
     const button = screen.getByRole('button');
     expect(button.style.getPropertyValue('--button-bg')).toBe('transparent');
-    expect(button.style.getPropertyValue('--button-color')).toBe(palettes.primary[600]);
-    expect(button.style.getPropertyValue('--button-border-color')).toBe(palettes.primary[500]);
+    expect(button.style.getPropertyValue('--button-color')).toBe(
+      palettes.primary[600]
+    );
+    expect(button.style.getPropertyValue('--button-border-color')).toBe(
+      palettes.primary[500]
+    );
   });
 
   it('ghost variant applies correct tokens', () => {
     render(<Button variant="ghost">Ghost</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-bg')).toBe(palettes.primary[50]);
-    expect(button.style.getPropertyValue('--button-border-color')).toBe('transparent');
+    expect(button.style.getPropertyValue('--button-bg')).toBe(
+      palettes.primary[50]
+    );
+    expect(button.style.getPropertyValue('--button-border-color')).toBe(
+      'transparent'
+    );
   });
 
   // --- Color ---
@@ -63,7 +77,9 @@ describe('Button', () => {
   it('color defaults to primary', () => {
     render(<Button>Primary</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-bg')).toBe(palettes.primary[600]);
+    expect(button.style.getPropertyValue('--button-bg')).toBe(
+      palettes.primary[600]
+    );
   });
 
   // --- Size ---
@@ -71,15 +87,21 @@ describe('Button', () => {
   it('size defaults to m', () => {
     render(<Button>Medium</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe('1rem');
+    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe(
+      '1rem'
+    );
     expect(button.style.getPropertyValue('--button-size-font')).toBe('1rem');
   });
 
   it('size s applies smaller dimensions than size m', () => {
     render(<Button size="s">Small</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe('0.75rem');
-    expect(button.style.getPropertyValue('--button-size-font')).toBe('0.875rem');
+    expect(button.style.getPropertyValue('--button-size-padding-x')).toBe(
+      '0.75rem'
+    );
+    expect(button.style.getPropertyValue('--button-size-font')).toBe(
+      '0.875rem'
+    );
   });
 
   // --- Disabled ---
@@ -100,7 +122,11 @@ describe('Button', () => {
   it('disabled suppresses onClick', async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
-    render(<Button disabled onClick={onClick}>Disabled</Button>);
+    render(
+      <Button disabled onClick={onClick}>
+        Disabled
+      </Button>
+    );
     await user.click(screen.getByRole('button'));
     expect(onClick).not.toHaveBeenCalled();
   });
@@ -121,7 +147,11 @@ describe('Button', () => {
   it('Space and Enter are suppressed when disabled', async () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
-    render(<Button disabled onClick={onClick}>Disabled</Button>);
+    render(
+      <Button disabled onClick={onClick}>
+        Disabled
+      </Button>
+    );
     const button = screen.getByRole('button');
     button.focus();
     await user.keyboard('{Enter}');
@@ -132,7 +162,13 @@ describe('Button', () => {
   // --- Style and className merging ---
 
   it('style prop merges with token custom properties, consumer values win', () => {
-    render(<Button style={{ margin: '8px', '--button-bg': 'red' } as React.CSSProperties}>Styled</Button>);
+    render(
+      <Button
+        style={{ margin: '8px', '--button-bg': 'red' } as React.CSSProperties}
+      >
+        Styled
+      </Button>
+    );
     const button = screen.getByRole('button');
     expect(button.style.getPropertyValue('margin')).toBe('8px');
     expect(button.style.getPropertyValue('--button-bg')).toBe('red');
@@ -158,28 +194,44 @@ describe('Button', () => {
   it('solid variant has hover custom properties in inline style', () => {
     render(<Button variant="solid">Solid</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[700]);
-    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[700]);
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(
+      palettes.primary[700]
+    );
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(
+      palettes.primary[700]
+    );
   });
 
   it('outline variant has hover custom properties in inline style', () => {
     render(<Button variant="outline">Outline</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[50]);
-    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[700]);
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(
+      palettes.primary[50]
+    );
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(
+      palettes.primary[700]
+    );
   });
 
   it('ghost variant has hover custom properties in inline style', () => {
     render(<Button variant="ghost">Ghost</Button>);
     const button = screen.getByRole('button');
-    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(palettes.primary[100]);
-    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(palettes.primary[200]);
+    expect(button.style.getPropertyValue('--button-hover-bg')).toBe(
+      palettes.primary[100]
+    );
+    expect(button.style.getPropertyValue('--button-hover-border-color')).toBe(
+      palettes.primary[200]
+    );
   });
 
   // --- Spread props ---
 
   it('remaining native button props are spread through', () => {
-    render(<Button data-testid="custom" aria-label="custom label">Spread</Button>);
+    render(
+      <Button data-testid="custom" aria-label="custom label">
+        Spread
+      </Button>
+    );
     expect(screen.getByTestId('custom')).toBeInTheDocument();
     expect(screen.getByLabelText('custom label')).toBeInTheDocument();
   });

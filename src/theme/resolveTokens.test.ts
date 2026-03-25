@@ -28,7 +28,7 @@ describe('resolveTokens', () => {
     const result = resolveTokens({
       variant: 'solid',
       color: 'primary',
-      overrides: { '--button-bg': 'red' },
+      overrides: { '--button-bg': 'red' }
     });
     expect(result['--button-bg']).toBe('red');
   });
@@ -37,7 +37,7 @@ describe('resolveTokens', () => {
     const result = resolveTokens({
       variant: 'solid',
       color: 'primary',
-      overrides: { '--custom-prop': '42px' },
+      overrides: { '--custom-prop': '42px' }
     });
     expect(result['--button-bg']).toBe(palettes.primary[600]);
     expect(result['--custom-prop']).toBe('42px');

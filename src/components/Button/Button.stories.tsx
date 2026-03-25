@@ -7,30 +7,30 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['solid', 'outline', 'ghost'],
+      options: ['solid', 'outline', 'ghost']
     },
     color: {
       control: 'select',
-      options: ['primary'],
+      options: ['primary']
     },
     size: {
       control: 'select',
-      options: ['s', 'm'],
+      options: ['s', 'm']
     },
     disabled: {
-      control: 'boolean',
+      control: 'boolean'
     },
     children: {
-      control: 'text',
-    },
+      control: 'text'
+    }
   },
   args: {
     children: 'Button',
     variant: 'solid',
     color: 'primary',
     size: 'm',
-    disabled: false,
-  },
+    disabled: false
+  }
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -39,23 +39,23 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {};
 
 export const Solid: Story = {
-  args: { variant: 'solid', children: 'Solid' },
+  args: { variant: 'solid', children: 'Solid' }
 };
 
 export const Outline: Story = {
-  args: { variant: 'outline', children: 'Outline' },
+  args: { variant: 'outline', children: 'Outline' }
 };
 
 export const Ghost: Story = {
-  args: { variant: 'ghost', children: 'Ghost' },
+  args: { variant: 'ghost', children: 'Ghost' }
 };
 
 export const Disabled: Story = {
-  args: { disabled: true, children: 'Disabled' },
+  args: { disabled: true, children: 'Disabled' }
 };
 
 export const Small: Story = {
-  args: { size: 's', children: 'Small' },
+  args: { size: 's', children: 'Small' }
 };
 
 export const AllVariants: Story = {
@@ -71,5 +71,5 @@ export const AllVariants: Story = {
         Ghost
       </Button>
     </div>
-  ),
+  )
 };

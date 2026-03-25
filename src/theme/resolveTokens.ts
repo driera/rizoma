@@ -20,7 +20,7 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
         '--button-color': 'white',
         '--button-border-color': palette[600],
         '--button-hover-bg': palette[700],
-        '--button-hover-border-color': palette[700],
+        '--button-hover-border-color': palette[700]
       };
     case 'outline':
       return {
@@ -28,7 +28,7 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
         '--button-color': palette[600],
         '--button-border-color': palette[500],
         '--button-hover-bg': palette[50],
-        '--button-hover-border-color': palette[700],
+        '--button-hover-border-color': palette[700]
       };
     case 'ghost':
       return {
@@ -36,7 +36,7 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
         '--button-color': palette[600],
         '--button-border-color': 'transparent',
         '--button-hover-bg': palette[100],
-        '--button-hover-border-color': palette[200],
+        '--button-hover-border-color': palette[200]
       };
   }
 }
@@ -44,7 +44,7 @@ function variantTokens(variant: ButtonVariant, color: string): TokenRecord {
 export function resolveTokens({
   variant,
   color,
-  overrides,
+  overrides
 }: ResolveTokensOptions): TokenRecord {
   const tokens = variantTokens(variant, color);
   if (overrides) {

@@ -1,4 +1,9 @@
-import { createContext, useContext, type CSSProperties, type ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  type CSSProperties,
+  type ReactNode
+} from 'react';
 
 export type { RizomaTheme } from './types';
 import type { RizomaTheme } from './types';
@@ -16,7 +21,7 @@ const themeKeyToVar: Record<keyof RizomaTheme, string> = {
   radius: `${TOKEN_PREFIX}radius`,
   focusRingColor: `${TOKEN_PREFIX}focus-ring-color`,
   focusRingWidth: `${TOKEN_PREFIX}focus-ring-width`,
-  focusRingOffset: `${TOKEN_PREFIX}focus-ring-offset`,
+  focusRingOffset: `${TOKEN_PREFIX}focus-ring-offset`
 };
 
 function themeToCustomProperties(theme: RizomaTheme): CSSProperties {

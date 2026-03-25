@@ -8,7 +8,7 @@ describe('RizomaProvider', () => {
     render(
       <RizomaProvider theme={{}}>
         <span>child</span>
-      </RizomaProvider>,
+      </RizomaProvider>
     );
     expect(screen.getByText('child')).toBeInTheDocument();
   });
@@ -18,7 +18,7 @@ describe('RizomaProvider', () => {
     const { container } = render(
       <RizomaProvider theme={theme}>
         <span>child</span>
-      </RizomaProvider>,
+      </RizomaProvider>
     );
     const wrapper = container.firstElementChild as HTMLElement;
     expect(wrapper.style.getPropertyValue('--rizoma-radius')).toBe('8px');
@@ -30,7 +30,7 @@ describe('RizomaProvider', () => {
         <RizomaProvider theme={{ radius: '16px' }}>
           <span data-testid="inner">inner</span>
         </RizomaProvider>
-      </RizomaProvider>,
+      </RizomaProvider>
     );
     const inner = screen.getByTestId('inner');
     const wrapper = inner.parentElement as HTMLElement;
@@ -42,10 +42,12 @@ describe('RizomaProvider', () => {
     const { container } = render(
       <RizomaProvider theme={theme}>
         <span>child</span>
-      </RizomaProvider>,
+      </RizomaProvider>
     );
     const wrapper = container.firstElementChild as HTMLElement;
-    expect(wrapper.style.getPropertyValue('--rizoma-font-family')).toBe('Georgia');
+    expect(wrapper.style.getPropertyValue('--rizoma-font-family')).toBe(
+      'Georgia'
+    );
   });
 
   it('components outside any provider still render', () => {
