@@ -206,7 +206,7 @@ Commit: `feat: add fontFamily global token (#7)`
 
 ---
 
-### 11. Recalibrate primary palette for AAA contrast compliance
+### 11. Recalibrate primary palette for AAA contrast compliance ✅
 
 The current palette anchors step 600 at `oklch(0.59 0.14 220)`, which produces ~3.6:1 contrast against white — below WCAG AA (4.5:1). For a library claiming AAA compliance, step 600 must guarantee 7:1 against white. The entire scale rebuilds around a new anchor at approximately `oklch(0.45 0.15 220)`, with lighter steps proportionally lighter and darker steps proportionally darker.
 
